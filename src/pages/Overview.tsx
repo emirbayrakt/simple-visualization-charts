@@ -26,12 +26,14 @@ const Overview = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Overview</h1>
+    <div className="space-y-6 max-w-4xl mx-auto px-2 sm:px-4 md:px-0">
+      <h1 className="text-3xl font-bold text-ajpurple900">Overview</h1>
 
       <div className="flex flex-col gap-4 md:flex-row">
-        <div className="flex-1 h-80 rounded-md border border-gray-200 bg-white p-4">
-          <h2 className="mb-2 text-sm font-medium text-gray-600">Installs</h2>
+        <div className="flex-1 min-h-0 max-h-96 h-80 rounded-xl border border-ajpurple300 bg-ajbglight p-4 shadow-sm">
+          <h2 className="mb-2 text-sm font-semibold text-ajtextdark">
+            Installs
+          </h2>
           <LineChart
             labels={labels}
             data={installsValues}
@@ -40,8 +42,10 @@ const Overview = () => {
           />
         </div>
 
-        <div className="flex-1 h-80 rounded-md border border-gray-200 bg-white p-4">
-          <h2 className="mb-2 text-sm font-medium text-gray-600">Revenue</h2>
+        <div className="flex-1 min-h-0 max-h-96 h-80 rounded-xl border border-ajpurple300 bg-ajbglight p-4 shadow-sm">
+          <h2 className="mb-2 text-sm font-semibold text-ajtextdark">
+            Revenue
+          </h2>
           <LineChart
             labels={labels}
             data={revenueValues}

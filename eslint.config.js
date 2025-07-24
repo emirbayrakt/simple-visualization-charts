@@ -55,6 +55,7 @@ export default [
       globals: globals.browser,
     },
     settings: { react: { version: 'detect' } },
+    ignores: ['vite.config.ts', 'vitest.config.ts'],
     plugins: {
       '@typescript-eslint': tseslint.plugin,
       react,

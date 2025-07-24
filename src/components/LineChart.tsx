@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Chart,
   LineController,
@@ -30,6 +30,22 @@ interface Props {
 const LineChart = ({ labels, data, label, color = '#000000' }: Props) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const chartRef = useRef<Chart | null>(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+    const handleResize = () => {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setWindowWidth(window.innerWidth);
+      }, 200);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -63,7 +79,7 @@ const LineChart = ({ labels, data, label, color = '#000000' }: Props) => {
     });
 
     return () => chartRef.current?.destroy();
-  }, [labels, data, label, color]);
+  }, [labels, data, label, color, windowWidth]);
 
   return <canvas ref={canvasRef} />;
 };

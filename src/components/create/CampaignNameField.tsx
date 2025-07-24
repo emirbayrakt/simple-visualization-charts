@@ -8,13 +8,15 @@ interface Props {
 
 const CampaignNameField = ({ register, error }: Props) => {
   return (
-    <div>
-      <label className="mb-1 block text-sm font-medium">Name</label>
+    <div className="mb-4">
+      <label className="mb-1 block text-sm font-semibold text-ajtextdark">
+        Name
+      </label>
       <input
         type="text"
         {...register('name')}
         placeholder="Limited Offer"
-        className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full rounded-lg border border-ajpurple300 bg-white px-3 py-2 text-sm text-ajtextdark placeholder-ajtextlight focus:border-ajpurple700 focus:ring-2 focus:ring-ajpurple500 focus:outline-none transition-colors shadow-sm"
       />
       <FormError message={error?.message} />
     </div>

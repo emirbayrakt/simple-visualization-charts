@@ -25,7 +25,10 @@ export default function CreateCampaignPage() {
             days.reduce(
               (acc, d) => ({
                 ...acc,
-                [d]: z.coerce.number().min(0, '>= 0'),
+                [d]: z.coerce
+                  .number()
+                  .min(0, '>= 0')
+                  .max(999999999, '>= 999999999'),
               }),
               {} as Record<DayKey, z.ZodTypeAny>,
             ),
@@ -74,28 +77,28 @@ export default function CreateCampaignPage() {
   }
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Create Campaign</h1>
+    <div className="space-y-6 max-w-2xl mx-auto px-2 sm:px-4 md:px-0">
+      <h1 className="text-3xl font-bold text-ajpurple900">Create Campaign</h1>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-6 rounded-md border border-gray-200 bg-white p-6"
+        className="space-y-6 rounded-xl border border-ajpurple300 bg-ajbglight p-6 shadow-sm"
       >
         <CampaignNameField register={register} error={errors.name} />
         <InstallsGrid register={register} errors={errors} />
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
+            className="rounded-lg bg-ajpurple900 px-6 py-2 text-sm font-semibold text-white hover:bg-ajpurple700 disabled:opacity-50 transition-colors shadow"
           >
             {isSubmitting ? 'Saving…' : 'Create Campaign'}
           </button>
           <button
             type="button"
             onClick={() => reset()}
-            className="rounded border border-gray-300 px-4 py-2 text-sm"
+            className="rounded-lg border border-ajpurple300 bg-white px-6 py-2 text-sm font-semibold text-ajpurple900 hover:bg-ajpurple300/30 transition-colors shadow"
           >
             Reset
           </button>

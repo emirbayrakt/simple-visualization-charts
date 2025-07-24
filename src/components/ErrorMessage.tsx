@@ -13,7 +13,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({
 }) => (
   <div className={`text-red-600 ${className}`}>
     {error}{' '}
-    <button onClick={onRetry} className="underline">
+    <button onClick={onRetry} className="cursor-pointer underline">
       Retry
     </button>
   </div>

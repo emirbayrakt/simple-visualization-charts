@@ -9,19 +9,21 @@ interface Props {
 
 const InstallsGrid = ({ register, errors }: Props) => {
   return (
-    <div>
-      <p className="mb-2 text-sm font-medium">Installs per day</p>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+    <div className="mb-4">
+      <p className="mb-2 text-sm font-semibold text-ajtextdark">
+        Installs per day
+      </p>
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
         {days.map((day) => (
-          <div key={day}>
-            <label className="mb-1 block text-xs font-medium capitalize">
+          <div key={day} className="flex flex-col">
+            <label className="mb-1 block text-xs font-semibold capitalize text-ajtextdark">
               {day}
             </label>
             <input
               type="number"
               min={0}
               {...register(`installs.${day}`, { valueAsNumber: true })}
-              className="w-full rounded border border-gray-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-lg border border-ajpurple300 bg-white px-2 py-1.5 text-sm text-ajtextdark placeholder-ajtextlight focus:border-ajpurple700 focus:ring-2 focus:ring-ajpurple500 focus:outline-none transition-colors shadow-sm"
             />
             <FormError
               message={

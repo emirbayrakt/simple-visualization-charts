@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 import type { Campaign } from '../api/campaigns';
 
+/* eslint-disable no-unused-vars */
 export type CampaignsContextType = {
   campaigns: Campaign[];
   loading: boolean;

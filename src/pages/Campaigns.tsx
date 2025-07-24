@@ -23,32 +23,32 @@ const CampaignsPage = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <h1 className="text-2xl font-semibold">Campaigns</h1>
+    <div className="space-y-6 max-w-2xl mx-auto px-2 sm:px-4 md:px-0">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
+        <h1 className="text-3xl font-bold text-ajpurple900">Campaigns</h1>
 
         <select
-          className="rounded border border-gray-300 bg-white px-3 py-2 text-sm"
+          className="rounded-lg border border-ajpurple300 bg-white px-4 py-2 text-sm font-semibold text-ajpurple900 focus:border-ajpurple700 focus:ring-2 focus:ring-ajpurple500 focus:outline-none transition-colors shadow-sm"
           value={current.id}
           onChange={(e) => selectCampaign(e.target.value)}
         >
           {campaigns.map((c) => (
-            <option key={c.id} value={c.id}>
+            <option key={c.id} value={c.id} className="text-ajtextdark">
               {c.name}
             </option>
           ))}
         </select>
       </div>
 
-      <div className="h-80 rounded-md border border-gray-200 bg-white p-4">
-        <h2 className="mb-2 text-sm font-medium text-gray-600">
+      <div className="h-80 rounded-xl border border-ajpurple300 bg-ajbglight p-4 shadow-sm">
+        <h2 className="mb-2 text-sm font-semibold text-ajtextdark">
           Installs for “{current.name}”
         </h2>
         <LineChart
           labels={labels}
           data={installs}
           label="Installs"
-          color="#6366f1"
+          color="#635dff"
         />
       </div>
     </div>
