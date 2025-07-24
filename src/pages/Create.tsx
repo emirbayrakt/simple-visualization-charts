@@ -7,6 +7,7 @@ import useCampaigns from '../hooks/useCampaigns';
 import { dayOrder as days, DayKey } from '../data/constants';
 import CampaignNameField from '../components/create/CampaignNameField';
 import InstallsGrid from '../components/create/InstallsGrid';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function CreateCampaignPage() {
   const { campaigns, addCampaign } = useCampaigns();
@@ -64,7 +65,7 @@ export default function CreateCampaignPage() {
 
   function onSubmit(values: FormValues) {
     const newCampaign = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       name: values.name.trim(),
       installs: days.map((d) => ({
         day: d,
