@@ -2,7 +2,7 @@ import { fetchOverview } from '../api/overview';
 import LineChart from '../components/LineChart';
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
-import { dayOrder } from '../data/data';
+import { dayOrder } from '../data/constants';
 import useFetch from '../hooks/useFetch';
 
 const Overview = () => {

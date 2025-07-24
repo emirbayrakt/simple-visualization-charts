@@ -6,4 +6,6 @@ export const dayOrder = [
   'friday',
   'saturday',
   'sunday',
-];
+] as const;
+
+export type DayKey = (typeof dayOrder)[number];

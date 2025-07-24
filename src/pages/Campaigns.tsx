@@ -1,7 +1,7 @@
 import LineChart from '../components/LineChart';
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
-import { dayOrder } from '../data/data';
+import { dayOrder } from '../data/constants';
 import useCampaigns from '../hooks/useCampaigns';
 
 const CampaignsPage = () => {
