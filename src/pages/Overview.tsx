@@ -1,40 +1,27 @@
+import { fetchOverview } from '../api/overview';
 import LineChart from '../components/LineChart';
 import Loading from '../components/Loading';
-import useOverview from '../hooks/useOverview';
+import ErrorMessage from '../components/ErrorMessage';
+import { dayOrder } from '../data/data';
+import useFetch from '../hooks/useFetch';
 
 const Overview = () => {
-  const { data, loading, error, refetch } = useOverview();
+  const { data, loading, error, refetch } = useFetch(fetchOverview);
 
   if (loading) return <Loading />;
 
   if (error) {
-    return (
-      <div className="text-red-600">
-        {error}{' '}
-        <button onClick={refetch} className="underline">
-          Retry
-        </button>
-      </div>
-    );
+    return <ErrorMessage error={error} onRetry={refetch} />;
   }
 
-  if (!data) return null;
+  if (!data) return <div>No data.</div>;
 
-  const order = [
-    'monday',
-    'tuesday',
-    'wednesday',
-    'thursday',
-    'friday',
-    'saturday',
-    'sunday',
-  ];
-  const labels = order.map((d) => d[0].toUpperCase() + d.slice(1));
+  const labels = dayOrder.map((d) => d[0].toUpperCase() + d.slice(1));
 
-  const installsValues = order.map(
+  const installsValues = dayOrder.map(
     (day) => data.installs.find((d) => d.day === day)?.value ?? 0,
   );
-  const revenueValues = order.map(
+  const revenueValues = dayOrder.map(
     (day) => data.revenue.find((d) => d.day === day)?.value ?? 0,
   );
 

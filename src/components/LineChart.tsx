@@ -45,7 +45,6 @@ const LineChart = ({ labels, data, label, color = '#000000' }: Props) => {
             label,
             data,
             borderColor: color,
-            backgroundColor: color + '33', // use same color with transparency
             fill: true,
             tension: 0.4, // curved line
             pointRadius: 3,

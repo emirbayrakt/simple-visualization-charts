@@ -6,8 +6,6 @@ export type OverviewResponse = {
 
 import { api } from './client';
 
-// fetch overview data
-
 export const fetchOverview = async (): Promise<OverviewResponse> => {
   const { data } = await api.get<OverviewResponse>('/overview');
   return data;
