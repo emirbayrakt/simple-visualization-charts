@@ -13,9 +13,7 @@ const Navbar = () => {
     <nav className="bg-ajpurple900 sticky top-0 z-20 shadow-md">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-14 items-center justify-between">
-          <div className="text-xl font-bold text-white">
-            Applike Frontend Test
-          </div>
+          <div className="text-xl font-bold text-white">App Installs</div>
 
           {/* Mobile menu button, react icons could look better here but I'm short on time*/}
           <button
